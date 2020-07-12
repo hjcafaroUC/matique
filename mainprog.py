@@ -96,7 +96,7 @@ for i in range(1,dim+1):
 
     arrCinString2 = arrCinString2 + "}\n"
 
-if (inputType == "standard"):
+if ((inputType == "standard") or (inputType == "st")):
 
     totalInputString = cinString + arrCinString1 + "cin >> a" + dpPlacehold[2:] + ";\n" + dpPlacehold + "=-1;\n" + arrCinString2
 elif(inputType == "no"):
