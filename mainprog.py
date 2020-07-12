@@ -111,7 +111,7 @@ dpSetString1 = ""
 dpSetString2 = ""
 
 for i in range(1,dpdim+1):
-    dpSetString1 = dpSetString1 + "for(int x" + str(i) + "=0; x" + str(i) + " < y" + str(i) + "; x" + str(i) + "++){\n"
+    dpSetString1 = dpSetString1 + "for(int x" + str(i) + "=0; x" + str(i) + " < " + str(dpdims[i-1]) + "; x" + str(i) + "++){\n"
 
     dpSetString2 = dpSetString2 + "}\n"
 
