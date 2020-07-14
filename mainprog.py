@@ -46,6 +46,16 @@ fPlacehold = fPlacehold[:-1] + ")"
 
 #To do: add changing variable names
 
+#header includes dependencies, allocates variables
+headerString = "//generated with matiquepro, Henry Cafaro \n# include <iostream>\n#define ll long long\nusing namespace std;\nll int a"
+for i in range(datadim):
+    headerString = headerString + "[" + str(datadims[i]+5) + "]"
+
+headerString = headerString + ";\nll int dp"
+for i in range(dpdim):
+    headerString = headerString + "[" + str(dpdims[i]+5) + "]"
+
+headerString = headerString + ";\n"
 
 
 
@@ -97,11 +107,12 @@ print("What input type?")
 inputType = input()
 #builds input parameters from user, can either fill a data array or just take in variables to evaluate answer at
 
-cinString = "int "
+cinString = ""
 for i in range(1,datadim):
-    cinString = cinString + "y" + str(i) + ","
+    headerString = headerString + "ll int y" + str(i) + ";\n"
 
-cinString = cinString + "y" + str(datadim) + ";\ncin >> "
+headerString = headerString + "ll int y" + str(datadim) + ";\n"
+cinString = cinString + "cin >> "
 for i in range(1,datadim):
     cinString = cinString + "y" + str(i) + " >> "
 cinString = cinString + "y" + str(datadim) + ";\n"
@@ -127,6 +138,14 @@ for i in range(1,datadim+1):
 if ((inputType == "standard") or (inputType == "st")):
 
     totalInputString = cinString + dpSetString1 + dpPlacehold + "=-1;\n" + dpSetString2 + dataCinString1 + "cin >> " + aPlacehold + ";\n" + dataCinString2
+elif ((inputType == "str") or (inputType == "string")):
+    totalInputString = cinString +"cin >> s;\n"+ dpSetString1 + dpPlacehold + "=-1;\n" + dpSetString2
+    headerString = headerString + "string s;\n"
+elif ((inputType == "strauto") or (inputType == "stringauto")):
+    #assumes 1-dimensional data
+    totalInputString = "cin >> s;\ny1 =s.size();\n"+ dpSetString1 + dpPlacehold + "=-1;\n" + dpSetString2
+    headerString = headerString + "string s;\n"
+
 elif(inputType == "no"):
     totalInputString = cinString + dpSetString1 + dpPlacehold + "=-1;\n" + dpSetString2
 
@@ -152,16 +171,7 @@ mainString = "int main() {\n" + totalInputString + evalString + "}"
 
 
 
-#header includes dependencies, allocates variables 
-headerString = "//generated with autodp, Henry Cafaro \n# include <iostream>\n#define ll long long\nusing namespace std;\nll int a"
-for i in range(datadim):
-    headerString = headerString + "[" + str(datadims[i]) + "]"
 
-headerString = headerString + ";\nll int dp"
-for i in range(dpdim):
-    headerString = headerString + "[" + str(dpdims[i]) + "]"
-
-headerString = headerString + ";\n"
 
 totalString = headerString + functionString + mainString
 
