@@ -157,7 +157,7 @@ evalType = input()
 
 evalString = ""
 if(evalType == "mx"):
-    evalString = "ll int mx = 0;\n" + dpSetString1 + "mx = max(mx," + fPlacehold + ");\n" + dpSetString2 + "cout << mx << endl;\n"
+    evalString = "ll int mx = 0;\n" + dataCinString1 + "mx = max(mx," + fPlacehold + ");\n" + dataCinString2 + "cout << mx << endl;\n"
 elif(evalType == "eval"):
     evalString = "cout << f("
     for i in range(1,dpdim):
