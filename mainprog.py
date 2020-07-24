@@ -77,7 +77,7 @@ if dpRuleString == "sw":
         print("Input case boolean")
         caseBoolean = procboolstr(input())
         print("Input rule")
-        caseRule = input()
+        caseRule = procboolstr(input())
         if(caseBoolean != "el"):
             cases.append("if(" + caseBoolean + "){\n" + dpPlacehold + " = "  + caseRule + ";\n}\n")
             if(len(cases) > 1):

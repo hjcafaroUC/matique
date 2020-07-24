@@ -32,6 +32,35 @@ def procboolstr(s):
         else:
             ind = ind + 1
 
+    #auto filling in of parentheses or brackets
+    #start by only doing this for one-dimensional stuff
+    ind = 0
+    while(ind < len(s1)):
+        if(s1[ind] == "a" and s1[ind+1] != "["):
+            lastInd = ind
+            s1 = s1[:ind+1] + "[" + s1[ind+1:]
+            ind = ind + 2
+            while(ind < len(s1) and s1[ind] != " "):
+                ind = ind + 1
+            if(ind == len(s1)):
+                s1 = s1 + "]"
+            else:
+                s1 = s1[:ind] + "]" + s1[ind:]
+            ind = lastInd + 1
+        elif (s1[ind] == "f" and s1[ind+1] != "("):
+            lastInd = ind
+            s1 = s1[:ind + 1] + "(" + s1[ind + 1:]
+            ind = ind + 2
+            while (ind < len(s1) and s1[ind] != " "):
+                ind = ind + 1
+            if (ind == len(s1)):
+                s1 = s1 + ")"
+            else:
+                s1 = s1[:ind] + ")" + s1[ind:]
+            ind = lastInd + 1
+
+        else:
+            ind = ind + 1
     
 
     return s1
