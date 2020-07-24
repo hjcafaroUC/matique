@@ -30,6 +30,10 @@ else:
     for i in range(datadim):
         datadims.append(int(input()))
 
+print("Enter the number of constants, or 0:")
+numConstants = int(input())
+
+
 
 dpPlacehold= "dp"
 fPlacehold = "f("
@@ -58,6 +62,15 @@ for i in range(dpdim):
     headerString = headerString + "[" + str(dpdims[i]+5) + "]"
 
 headerString = headerString + ";\n"
+if(numConstants > 0):
+    headerString = headerString + "ll int "
+
+    for i in range(1,numConstants):
+        headerString = headerString + "c" + str(i) + ","
+    headerString = headerString + "c" + str(numConstants) + ";\n"
+
+
+
 
 
 
@@ -118,6 +131,14 @@ cinString = cinString + "cin >> "
 for i in range(1,datadim):
     cinString = cinString + "y" + str(i) + " >> "
 cinString = cinString + "y" + str(datadim) + ";\n"
+
+constInString = ""
+if(numConstants > 0):
+    for i in range(1,numConstants):
+        constInString = constInString + "c" + str(i) + " >> "
+    constInString = constInString + "c" + str(numConstants) + ";\n"
+
+cinString = cinString + constInString
 
 dpSetString1 = ""
 
