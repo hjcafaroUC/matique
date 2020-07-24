@@ -1,3 +1,5 @@
+from smartInput import *
+
 
 import sys; print(sys.version)
 #get dimensions of underlying problem-typically 1,2, or at most 3
@@ -73,7 +75,7 @@ cases = []
 if dpRuleString == "sw":
     while(True):
         print("Input case boolean")
-        caseBoolean = input()
+        caseBoolean = procboolstr(input())
         print("Input rule")
         caseRule = input()
         if(caseBoolean != "el"):
