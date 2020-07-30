@@ -14,7 +14,12 @@ def procboolstr(s):
 
         if(trkStrEsc == 0):
             if(s1[ind] == "i"):
-                s1 = s1[:ind] + "x1" + s1[ind+1:]
+                if(ind>0):
+                    if(s1[ind-1]!="m"):
+                        s1 = s1[:ind] + "x1" + s1[ind+1:]
+                else:
+                    s1 = s1[:ind] + "x1" + s1[ind + 1:]
+
             if (s1[ind] == "j"):
                 s1 = s1[:ind] + "x2" + s1[ind + 1:]
             if (s1[ind] == "k"):
@@ -36,7 +41,7 @@ def procboolstr(s):
     #start by only doing this for one-dimensional stuff
     ind = 0
     while(ind < len(s1)):
-        if(s1[ind] == "a" and s1[ind+1] != "["):
+        if(s1[ind] == "a" and s1[ind+1] not in "[x"):
             lastInd = ind
             s1 = s1[:ind+1] + "[" + s1[ind+1:]
             ind = ind + 2
