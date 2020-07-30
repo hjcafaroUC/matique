@@ -2,23 +2,51 @@ from smartInput import *
 
 
 import sys; print(sys.version)
+#check if user wants to input commands in standard input or through text file?
+print("Standard input 's' or text file 't'?")
+inputMethod = input()
+lines=[]
+textIndex = 0
+if(inputMethod=="t"):
+    print("Enter name of text file to parse input from")
+    textAddress = input()
+    f=open(textAddress,'r')
+    lines = f.read().split(sep="\n")
+    for i in lines:
+        print(i)
+
+
+
+def inputWrapper():
+    if(inputMethod=='s'):
+        return input()
+    if(inputMethod=='t'):
+        global textIndex
+        textIndex = 1+textIndex
+        return lines[textIndex-1]
+
+
+
+
+
+
 #get dimensions of underlying problem-typically 1,2, or at most 3
 
 print("What is the dimensionality of your problem?")
 
-dpdim = int(input())
+dpdim = int(inputWrapper())
 
 dpdims = []
 print("Enter the maximum bounds on each dimension:")
 #global multidimensional array will be allocated with these bounds
 
 for i in range(dpdim):
-    dpdims.append(int(input()))
+    dpdims.append(int(inputWrapper()))
 
 datadim = 0
 datadims = []
 print("Enter the dimensionality of your data")
-s = input()
+s = inputWrapper()
 if(s == "sm"):
     datadim = dpdim
     datadims = dpdims[::]
@@ -28,10 +56,10 @@ else:
     # data array will be allocated with these dimensions
 
     for i in range(datadim):
-        datadims.append(int(input()))
+        datadims.append(int(inputWrapper()))
 
 print("Enter the number of constants, or 0:")
-numConstants = int(input())
+numConstants = int(inputWrapper())
 
 
 
@@ -81,16 +109,16 @@ if(numConstants > 0):
 
 print("Enter the rule for your dp")
 
-dpRuleString = input()
+dpRuleString = inputWrapper()
 
 cases = []
 
 if dpRuleString == "sw":
     while(True):
         print("Input case boolean")
-        caseBoolean = procboolstr(input())
+        caseBoolean = procboolstr(inputWrapper())
         print("Input rule")
-        caseRule = procboolstr(input())
+        caseRule = procboolstr(inputWrapper())
         if(caseBoolean != "el"):
             cases.append("if(" + caseBoolean + "){\n" + dpPlacehold + " = "  + caseRule + ";\n}\n")
             if(len(cases) > 1):
@@ -119,7 +147,7 @@ else:
 functionString = functionString + "}\n return " + dpPlacehold + ";}\n"
 
 print("What input type?")
-inputType = input()
+inputType = inputWrapper()
 #builds input parameters from user, can either fill a data array or just take in variables to evaluate answer at
 
 cinString = ""
@@ -176,7 +204,7 @@ elif(inputType == "no"):
 #right now, can either take max of dp elements or evaluate f() at a single point
 print("Evaluation type")
 
-evalType = input()
+evalType = inputWrapper()
 
 evalString = ""
 if(evalType == "mx"):
@@ -185,9 +213,10 @@ elif(evalType == "eval"):
     evalString = "cout << f("
     for i in range(1,dpdim):
         print("Input variable " + str(i))
-        evalString = evalString + input() + ","
+        evalString = evalString + inputWrapper() + ","
     print("Input variable " + str(dpdim))
-    evalString = evalString + input() + ") << endl;\n"
+    evalString = evalString + inputWrapper() + ") << endl;\n"
+
 
 
 mainString = "int main() {\n" + totalInputString + evalString + "}"
