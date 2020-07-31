@@ -12,8 +12,16 @@ if(inputMethod=="t"):
     textAddress = input()
     f=open(textAddress,'r')
     lines = f.read().split(sep="\n")
-    for i in lines:
-        print(i)
+
+
+print("Standard output 's' or text file 't'?")
+outputMethod = input()
+outputFileAddress = ""
+if(outputMethod == "t"):
+    print("Enter address of text file to print to")
+    #should .cpp be appended? ill assume user handles it for now
+    outputFileAddress = input()
+
 
 
 
@@ -230,7 +238,15 @@ mainString = "int main() {\n" + totalInputString + evalString + "}"
 
 totalString = headerString + functionString + mainString
 
-print(totalString)
+if(outputMethod == "s"):
+    print(totalString)
+elif(outputMethod == "t"):
+    outputFile = open(outputFileAddress,"w")
+    outputFile.write(totalString)
+    outputFile.close()
+
+
+
 
 
 
