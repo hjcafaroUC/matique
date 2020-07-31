@@ -22,7 +22,10 @@ def inputWrapper():
         return input()
     if(inputMethod=='t'):
         global textIndex
+        #check if current line is a comment-starting with ;
         textIndex = 1+textIndex
+        while (lines[textIndex-1][0]==";"):
+            textIndex = textIndex+1
         return lines[textIndex-1]
 
 
