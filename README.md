@@ -1,8 +1,9 @@
 # matiquepro
-Automatically generated solutions to dynamic programming problems
+Automatically generated solutions to dynamic programming problems-the ultimate goal is a programming language, and we're moving gradually toward that through parsing text input. 
 
 # Details
-The purpose of this project is to be able to quickly produce C++ code capable of solving dynamic programming problems. For more information on dynamic programming see: TOADD. The python program takes in details of the dynamic programming problem and automatically creates appropriate C++ code. 
+The purpose of this project is to be able to quickly produce C++ code capable of solving dynamic programming problems, in the context of competitive programming. For more information on dynamic programming see: TOADD. The python program takes in details of the dynamic programming problem and automatically creates appropriate C++ code-we are moving towards the python program just being a compiler of our matique code to C++. 
+
 # User guide
 The dp problem is specified as:
 1. A data set (possibly empty)
