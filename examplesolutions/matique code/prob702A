@@ -1,0 +1,19 @@
+;dp
+1
+100000
+;data
+sm
+;constants
+0
+;f
+sw
+i=0
+1
+ai-1 < ai
+fi-1 + 1
+el
+1
+;io
+st
+mx
+;end
