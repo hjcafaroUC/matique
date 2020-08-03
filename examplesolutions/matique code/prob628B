@@ -1,7 +1,9 @@
+;data,dp,const
 1
 300000
 sm
 0
+;f
 sw
 i=y1
 0
@@ -13,7 +15,9 @@ fi+1
 !((s[i]-'0')%4)+i+fi+1
 el
 !((s[i]-'0')%4)+fi+1
+;io
 strauto
 eval
 0
+;end
 
