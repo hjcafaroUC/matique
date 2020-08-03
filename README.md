@@ -1,14 +1,12 @@
-# matiquepro
-Automatically generated solutions to dynamic programming problems-the ultimate goal is a programming language, and we're moving gradually toward that through parsing text input. 
+# matique
+Matique is a utility/programming language to automatically generate solutions for dynamic programming problems-the ultimate goal is a programming language, and we're moving gradually toward that from our initial REPL system. 
 
 # Details
-The purpose of this project is to be able to quickly produce C++ code capable of solving dynamic programming problems, in the context of competitive programming. For more information on dynamic programming see: TOADD. The python program takes in details of the dynamic programming problem and automatically creates appropriate C++ code-we are moving towards the python program just being a compiler of our matique code to C++. 
+Dynamic programming is a specific algorithmic technique for solving problems-the general idea revolves around dividing a problem into smaller subproblems, then efficiently calculating the solution to the subproblems and forming a solution to the larger problem. For more on this, see [Dynamic Programming](https://en.wikipedia.org/wiki/Dynamic_programming) or any number of online tutorials. The idea of our language is to be able to concisely express a DP problem as a dp-space, a data-space, and a function to evaluate an answer. 
 
 # User guide
-The dp problem is specified as:
-1. A data set (possibly empty)
-2. A function to interact with the data set
-3. A way to evaluate an answer
+
+See [Example Problem](temp) and [Documentation](temp)
 
 toadd
 
