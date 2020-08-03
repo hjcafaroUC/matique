@@ -6,7 +6,7 @@ Dynamic programming is a specific algorithmic technique for solving problems-the
 
 # User guide
 
-See [Example Problem](temp) and [Documentation](temp)
+See [Example Problem](https://github.com/hjcafaroUC/matique/blob/master/ExampleProb.md) and [Documentation](temp)
 
 toadd
 
