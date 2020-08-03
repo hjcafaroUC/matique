@@ -1,8 +1,10 @@
+;dp,data,consts
 2
 1000000
 3
 sm
 0
+;f
 sw
 (i>=y1)
 0
@@ -20,7 +22,9 @@ f(i+1,1)
 1+f(i+1,2)
 el
 f(i+1,2)
+;io
 strauto
 eval
 0
 0
+;end
