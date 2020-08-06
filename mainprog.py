@@ -173,6 +173,7 @@ cinString = cinString + "y" + str(datadim) + ";\n"
 
 constInString = ""
 if(numConstants > 0):
+    cinString = cinString[:len(cinString)-2] + ">>" #chop off last three character to add the constant inputs
     for i in range(1,numConstants):
         constInString = constInString + "c" + str(i) + " >> "
     constInString = constInString + "c" + str(numConstants) + ";\n"
@@ -219,7 +220,10 @@ evalType = inputWrapper()
 
 evalString = ""
 if(evalType == "mx"):
-    evalString = "ll int mx = 0;\n" + dataCinString1 + "mx = max(mx," + fPlacehold + ");\n" + dataCinString2 + "cout << mx << endl;\n"
+    evalString = "ll int mx = 0;\n" + dpSetString1 + "mx = max(mx," + fPlacehold + ");\n" + dpSetString2 + "cout << mx << endl;\n"
+if(evalType == "mn"):
+    evalString = "ll int mn = 1000000000;\n" + dpSetString1 + "mn = min(mn," + fPlacehold + ");\n" + dpSetString2 + "cout << mn << endl;\n"
+
 elif(evalType == "eval"):
     evalString = "cout << f("
     for i in range(1,dpdim):
