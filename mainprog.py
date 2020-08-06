@@ -180,23 +180,21 @@ if(numConstants > 0):
 
 cinString = cinString + constInString
 
-dpSetString1 = ""
 
-dpSetString2 = ""
-
+dpSetRanges = []
 for i in range(1,dpdim+1):
-    dpSetString1 = dpSetString1 + "for(int x" + str(i) + "=0; x" + str(i) + " < " + str(dpdims[i-1]) + "; x" + str(i) + "++){\n"
+    dpSetRanges.append([0,dpdims[i-1]])
 
-    dpSetString2 = dpSetString2 + "}\n"
 
-dataCinString1 = ""
+dpSetString1,dpSetString2 = buildLoopString(dpSetRanges)
 
-dataCinString2 = ""
+
+dataSetRanges = []
 
 for i in range(1,datadim+1):
-    dataCinString1 = dataCinString1 + "for(int x" + str(i) + "=0; x" + str(i) + " < y" + str(i) + "; x" + str(i) + "++){\n"
+    dataSetRanges.append([0,"y"+str(i)])
 
-    dataCinString2 = dataCinString2 + "}\n"
+dataCinString1,dataCinString2 = buildLoopString(dataSetRanges)
 
 if ((inputType == "standard") or (inputType == "st")):
 
