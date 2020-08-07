@@ -217,13 +217,28 @@ print("Evaluation type")
 evalType = inputWrapper()
 
 evalString = ""
+castToBool = False
+if (evalType[:2]=="tf"):
+    castToBool = True
+    evalType=evalType[3:]
+    #right now this only goes to "YES","NO", so we'll improve later
+
+
+
+
+
 if(evalType == "mx"):
     evalLoopString = buildLoopString(procMultirangeStr(inputWrapper()))
     evalString = "ll int mx = 0;\n" + evalLoopString[0] + "mx = max(mx," + fPlacehold + ");\n" + evalLoopString[1] + "cout << mx << endl;\n"
+    if(castToBool):
+        evalString=evalString.replace('cout << mx','cout << (mx?"YES":"NO")')
 if(evalType == "mn"):
     evalLoopString = buildLoopString(procMultirangeStr(inputWrapper()))
 
     evalString = "ll int mn = 1000000000;\n" + evalLoopString[0] + "mn = min(mn," + fPlacehold + ");\n" + evalLoopString[1] + "cout << mn << endl;\n"
+    if (castToBool):
+        evalString=evalString.replace('cout << mn', 'cout << (mn?"YES":"NO")')
+
 
 elif(evalType == "eval"):
     evalString = "cout << f("
@@ -232,6 +247,10 @@ elif(evalType == "eval"):
         evalString = evalString + inputWrapper() + ","
     print("Input variable " + str(dpdim))
     evalString = evalString + inputWrapper() + ") << endl;\n"
+    if (castToBool):
+        evalString=evalString.replace('cout << ', 'cout << (')
+
+        evalString=evalString.replace('<< endl;', '?"YES":"NO") << endl;')
 
 
 
