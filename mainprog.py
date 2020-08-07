@@ -92,7 +92,7 @@ fPlacehold = fPlacehold[:-1] + ")"
 #To do: add changing variable names
 
 #header includes dependencies, allocates variables
-headerString = "//generated with matiquepro, Henry Cafaro \n# include <iostream>\n#define ll long long\nusing namespace std;\nll int a"
+headerString = "//generated with matique, Henry Cafaro \n# include <iostream>\n#define ll long long\nusing namespace std;\nll int a"
 for i in range(datadim):
     headerString = headerString + "[" + str(datadims[i]+5) + "]"
 
@@ -223,7 +223,7 @@ if(evalType == "mx"):
 if(evalType == "mn"):
     evalLoopString = buildLoopString(procMultirangeStr(inputWrapper()))
 
-    evalString = "ll int mn = 1000000000;\n" + evalLoopString[0] + "mn = min(mn," + fPlacehold + ");\n" + evalLoopString[0] + "cout << mn << endl;\n"
+    evalString = "ll int mn = 1000000000;\n" + evalLoopString[0] + "mn = min(mn," + fPlacehold + ");\n" + evalLoopString[1] + "cout << mn << endl;\n"
 
 elif(evalType == "eval"):
     evalString = "cout << f("
