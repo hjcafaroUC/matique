@@ -1,4 +1,11 @@
 
+def procMultirangeStr(s):
+    #should be formatted like:
+    # "y1,1" or "100000,5,5"
+    q = s.split(",")
+    mRange = [[0,str(i)] for i in q]
+    return mRange
+
 
 def procboolstr(s):
     #replace i,j,k with x1,x2,x3

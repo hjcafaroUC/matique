@@ -218,9 +218,12 @@ evalType = inputWrapper()
 
 evalString = ""
 if(evalType == "mx"):
-    evalString = "ll int mx = 0;\n" + dpSetString1 + "mx = max(mx," + fPlacehold + ");\n" + dpSetString2 + "cout << mx << endl;\n"
+    evalLoopString = buildLoopString(procMultirangeStr(inputWrapper()))
+    evalString = "ll int mx = 0;\n" + evalLoopString[0] + "mx = max(mx," + fPlacehold + ");\n" + evalLoopString[1] + "cout << mx << endl;\n"
 if(evalType == "mn"):
-    evalString = "ll int mn = 1000000000;\n" + dpSetString1 + "mn = min(mn," + fPlacehold + ");\n" + dpSetString2 + "cout << mn << endl;\n"
+    evalLoopString = buildLoopString(procMultirangeStr(inputWrapper()))
+
+    evalString = "ll int mn = 1000000000;\n" + evalLoopString[0] + "mn = min(mn," + fPlacehold + ");\n" + evalLoopString[0] + "cout << mn << endl;\n"
 
 elif(evalType == "eval"):
     evalString = "cout << f("
