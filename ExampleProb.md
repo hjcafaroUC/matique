@@ -95,7 +95,7 @@ el
 ~~~
 # Input and Output
 
-Finally, we need to define the system of our input and output. For this problem, we need to read the contents of an array into memory. This is a common case, so we just use the command `st` for standard. The answer is going to be the maximum of our function f over the entire DP-space: another common case, so we use the command `mx`
+Finally, we need to define the system of our input and output. For this problem, we need to read the contents of an array into memory. This is a common case, so we just use the command `st` for standard. The answer is going to be the maximum of our function f over the entire DP-space: another common case, so we use the command `mx`. The next line will specify the range over which the max is taken: we use 'y1', which refers to the range [0,y1). 
 
 ```
 ;dp
@@ -116,6 +116,7 @@ el
 ;io
 st
 mx
+y1
 ;end
 ```
 
